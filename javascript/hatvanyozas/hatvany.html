@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <title>Hatvanyozas</title>
+    </head>
+    <body>
+        <table id="table">
+        </table>
+        <script>
+            var hatvany_ertek = 0;
+            var hatvany = 0;
+            var max = 1023;
+            var table = document.getElementById("table");
+            var row;
+            var row_count = 0;
+            var cell;
+            var cell_count = 0;
+
+            for (let i = 0; i <= max; i++) {
+                hatvany_ertek = Math.pow(2, hatvany);
+                row = table.insertRow(row_count);
+                cell = row.insertCell(cell_count++);
+                cell.innerHTML = "2^" + i + "\t";
+                cell = row.insertCell(cell_count++);
+                cell = row.insertCell(cell_count);
+                cell.innerHTML = "\t" + hatvany_ertek;
+                cell_count = 0;
+                row_count++;
+                hatvany++;
+            }
+
+        </script>
+    </body>
+</html>
