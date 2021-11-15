@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kitalalo</title>  
+    </head>
+    <body>
+        <p id="valasz"></p>
+        <script>
+            function maxHatar() {
+                let text;
+                let f_max_hatar = prompt("Adj meg egy maximum hatart");
+                if (f_max_hatar == null || f_max_hatar == "") {
+                    text = "Nem adtal meg egy hatart";
+                }
+
+                return f_max_hatar;
+            } 
+
+            function tipp(random){ 
+                u_tipp = prompt("Add meg a tipped");
+
+                for (let index = 0; index < 3; index++) {
+                    if(u_tipp > random){
+                        window.alert("A tipped tul nagy");
+                        document.getElementById("valasz").innerHTML = "A tipped tul nagy";
+                        index--;
+                    }else if(u_tipp < random){
+                        window.alert("A tipped tul kicsi");
+                        document.getElementById("valasz").innerHTML = "A tipped tul kicsi";
+                        index--;
+                    }else if(u_tipp == random){
+                        window.alert("Eltalaltad ");
+                        document.getElementById("valasz").innerHTML = "A szam " + random + " volt";
+                        index = 1000;
+                    }  
+                }
+            }
+
+            let max_hatar = maxHatar();
+            random = Math.floor(Math.random * max_hatar);
+            tipp(random);
+        </script>
+    </body>
+</html>
