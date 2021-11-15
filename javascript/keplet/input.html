@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <title></title>
+    </head>
+    <body>
+        <div>
+            <p>X</p>
+            <input id="number_x" type="number" value="0">
+        </div>
+        <div>
+            <p>Y</p>
+            <input id="number_y" type="number">
+        </div>
+        <div>
+            <p>Z</p>
+            <input id="number_z" type="number">
+            <button onclick="submit()">Submit</button>
+        </div>
+        <div>
+            <br>
+            <button onclick="calc()">Calc</button>
+        </div>
+        <div>
+            <p id="eredmeny"></p>
+        </div>
+        <script>
+            var eredmeny = 0;
+            var x,y,z;
+     
+            function submit(){
+               x = document.getElementById("number_x").value;
+               y = document.getElementById("number_y").value;
+               z = document.getElementById("number_z").value;
+            }
+
+            function calc(){
+                pow = Math.pow(2, x);
+                sqrt = Math.sqrt(y);
+                eredmeny = 2 * pow - 3 * sqrt + 5 * z;
+                document.getElementById("eredmeny").innerHTML = eredmeny;
+            }
+            
+        </script>
+    </body>
+</html>

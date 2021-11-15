@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+    function setStyleSheet(url){
+       var stylesheet = document.getElementById("stylesheet");
+       stylesheet.setAttribute('href', url);
+    }
+    </script>
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="piros.css"/>
+</head>
+<body>
+    <button onclick="setStyleSheet('piros.css')" href="#">Style 1</button>
+    <button onclick="setStyleSheet('kek.css')" href="#">Style 2</button>
+</body>
+</html>
