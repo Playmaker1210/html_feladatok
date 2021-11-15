@@ -8,20 +8,20 @@
     <body>
         <p id="valasz"></p>
         <script>
-            function maxHatar() {
-                let text;
-                let f_max_hatar = prompt("Adj meg egy maximum hatart");
-                if (f_max_hatar == null || f_max_hatar == "") {
-                    text = "Nem adtal meg egy hatart";
-                }
-
-                return f_max_hatar;
+            var hatar = 0;
+            function maxHatar(hatar) {
+                var f_max_hatar = prompt("Adj meg egy maximum hatart");
+                if (f_max_hatar == null || f_max_hatar == "") 
+                    var text = "Nem adtal meg egy hatart";
+                
+                hatar = parseInt(f_max_hatar);
+                return hatar;
             } 
 
             function tipp(random){ 
-                u_tipp = prompt("Add meg a tipped");
+                var u_tipp = parseInt(prompt("Add meg a tipped"));
 
-                for (let index = 0; index < 3; index++) {
+                for (var index = 0; index < 1; index++) {
                     if(u_tipp > random){
                         window.alert("A tipped tul nagy");
                         document.getElementById("valasz").innerHTML = "A tipped tul nagy";
@@ -34,12 +34,16 @@
                         window.alert("Eltalaltad ");
                         document.getElementById("valasz").innerHTML = "A szam " + random + " volt";
                         index = 1000;
-                    }  
+                    }else{
+                        window.alert("else ag");
+                    }
                 }
             }
 
-            let max_hatar = maxHatar();
-            random = Math.floor(Math.random * max_hatar);
+            var max_hatar = maxHatar();
+            window.alert(typeof(max_hatar));
+            var random = Math.random * max_hatar;
+            window.alert(random);
             tipp(random);
         </script>
     </body>
