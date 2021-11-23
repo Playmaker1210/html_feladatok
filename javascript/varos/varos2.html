@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+
+    <!-- alapdíj:2000ft 
+    súly:100ft/kg 
+    km díj:150/km --> 
+</head> 
+
+<body> 
+    <form name="lap"> 
+        <input type="number" name="suly"> 
+        <select name="távolság"  id=""> 
+            <script> 
+                var varosok = [['Balmazújváros',28],['Hajdúböszrmény',19],['Hajdúnánás',46],['Hajdúdorog',36],['Hajdúvíd',30]];  //varosok es tavolsagaik eltarolasa ket dimenzios tombben
+                for (let i = 0; i < varosok.length; i++) { 
+                    document.write("<option value="+varosok[i][1]+">"+varosok[i][0]+"</option>"); //hozzaadjuk oket lista elemekkent az oldalhoz (a select tagbe listakent)
+                } 
+            </script> 
+        </select> 
+        <input type="button" value="Ok" onclick="szamolas(document.lap.suly.value,document.lap.távolság.value)"> 
+    </form> 
+
+    <script> 
+        function szamolas(suly,tavolsag){  
+            const ALAPDÍJ = 2000; //konstans valtozoba el van tarolva az alapdij (konstans mivel az erteke soha nem fog valtozni vagyis allando)
+            const SÚLYDÍJ = 100;  //a sulydij allando erteke eltarolva
+            const TÁVDÍJ = 150;  //a tavdij allando erteke eltarolva
+            var b = parseInt(suly); //mivel szovegkent lett beolvasva az adat ezert a parseInt metodussal atalakitjuk szamma es eltaroljuk az atalakitott adatot
+            var c = parseInt(tavolsag); //mivel szovegkent lett beolvasva az adat ezert a parseInt metodussal atalakitjuk szamma es eltaroljuk az atalakitott adatot
+            var eredm = ALAPDÍJ+b*SÚLYDÍJ+c*TÁVDÍJ;  //a vegosszeg kiszamolasa 
+
+            alert("Fizetendő: " +eredm); //a vegosszeg kiiratasa
+        } 
+    </script> 
+</body> 
+
+</html>

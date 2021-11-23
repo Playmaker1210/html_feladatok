@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varos</title>
+</head>
+<body>
+    <form name="feecalculator">
+        <label>Adja meg a város nevét:</label>
+        <select id="town" onclick="popMenu(document.feecalculator.town)">
+            <option>Válasszon várost</option>
+        </select>
+        <label>Adja meg a csomag sulyát (kg):</label>
+        <input type="number" name="weight" id="weight"> <!--Input mezo a csomag sulyanak megadasara-->
+        <input type="button" value="Kalkulál!" onclick="feeCalculator(document.feecalculator.town.value, document.feecalculator.weight.value)"> <!-- Gomb a javascript fuggveny meghivasara-->
+    </form>
+    <script>
+        function popMenu(t) {
+            var townList = [['Budapest', 232], ['Szeged', 230], ['Miskolc', 114], ['Pécs', 474], ['Győr', 377], ['Nyíregyháza', 50], ['Kecskemét', 184], ['Székesfehérvár', 317], ['Szombathely', 458], ['Szolnok', 130]] //Ket dimenzios tomb ami a varosok nevet es Debrecentol valo tavolsagat tartalmazza
+
+            if (t.options.length == 1) 
+                for(var i = 0; i < townList.length; i++){  //ciklus vegig megy a tomb elemein
+                    var towns = townList[i];  //a tomb aktualis elemet bemasoljuk a valtozoba
+                    var el = document.createElement("option"); //letre hozunk egy option elemet
+                    el.textContent = towns[0]; //a varos nevet atadjuk
+                    el.value = towns[1]; //a varos tavolsagat adjuk at
+                    t.appendChild(el); //hozza adja a listahoz az elemet
+
+                }    
+        }
+        function feeCalculator(d, w) {
+            var weightFee = w * 100; //a beadott suly alapjan kiszamolja a valtozoba a sulyadot
+            var distanceFee = d * 150; //a beadott tavolsag alapjan kiszamolja a tavolsagra az adot
+            var total = weightFee+ distanceFee + 2000; //összkoltseg
+            alert("Alapdíj: 2000Ft," + " Súlydíj: " +weightFee +"Ft," + " Km díj: " + distanceFee + "Ft," + " Összesen: " + total + "Ft")   //kiirja a költsegeket a felhasznalonak
+        }
+    </script>
+    </body>
+</html>
